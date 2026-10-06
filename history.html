@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Repair History · RepairLens AI{% endblock %}
+{% block content %}
+<header class="page-header"><div><p class="eyebrow">YOUR DEVICE RECORDS</p><h1>Repair History</h1><p>Review your previous AI-assisted repair assessments.</p></div><a class="button secondary" href="{{ url_for('diagnose') }}">+ New Diagnosis</a></header>
+<section class="panel history-empty"><div class="empty-icon">▣</div><h2>No diagnosis history yet</h2><p>Complete your first diagnosis to build a searchable repair history.</p><a class="button primary" href="{{ url_for('diagnose') }}">Start a diagnosis <span>→</span></a></section>
+{% endblock %}

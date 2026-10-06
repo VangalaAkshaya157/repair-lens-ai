@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Diagnose Problem · RepairLens AI{% endblock %}
+{% block content %}
+<header class="page-header"><div><p class="eyebrow">AI-ASSISTED ASSESSMENT</p><h1>Diagnose Problem</h1><p>Provide device details, symptoms, and an optional image for an AI-assisted repair assessment.</p></div><span class="page-status"><i></i>Gemini-ready workspace</span></header>
+<section class="diagnosis-workspace">
+  <article class="panel form-panel"><div class="card-heading"><span><strong>Device Information</strong><small>Tell us about the device and its symptoms</small></span><span class="card-icon">⌁</span></div>
+    <form id="diagnosis-form">
+      <div class="form-grid">
+        <label>Device category<select name="device_category" required><option value="">Select a category</option><option>Phone</option><option>Laptop</option><option>Refrigerator</option><option>Washing Machine</option><option>Television</option><option>Air Conditioner</option><option>Vehicle</option><option>Other</option></select></label>
+        <label>Brand<input name="brand" type="text" placeholder="e.g. Apple, Samsung, Dell" required></label>
+        <label>Model<input name="model" type="text" placeholder="e.g. iPhone 14, Inspiron 15" required></label>
+        <label class="wide">Problem description<textarea name="problem_description" rows="6" placeholder="Describe symptoms, sounds, damage, or error messages..." required></textarea></label>
+      </div>
+    </form>
+  </article>
+  <article class="panel upload-panel"><div class="card-heading"><span><strong>Device Image</strong><small>Optional visual context for the assistant</small></span><span class="card-icon">▧</span></div>
+    <label class="upload-zone" id="upload-zone" for="device-image"><span class="upload-symbol">📷</span><strong>Upload device image</strong><span>Drag & drop or choose an image</span><small>JPG, JPEG, PNG or WEBP</small><input id="device-image" name="image" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required></label>
+    <div class="file-preview" id="file-preview" hidden><img id="preview-image" alt="Selected device preview"><div><strong id="file-name"></strong><small id="file-size"></small></div><button type="button" id="remove-file" aria-label="Remove image">×</button></div>
+  </article>
+</section>
+<div class="analysis-action"><button class="button ai-button" id="analyze-button" type="button" form="diagnosis-form"><span class="button-spark">✦</span> Analyze Problem with AI <span>→</span></button><p>AI results are estimates and possible causes, not a guaranteed technical diagnosis.</p></div>
+<section class="results-preview" id="results-preview" hidden><div class="result-heading"><span class="ai-orb">✦</span><div><p class="eyebrow">AI ANALYSIS REPORT</p><h2 id="result-heading-title">Your assessment is ready</h2></div></div><div class="result-grid" id="result-content"></div></section>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}RepairLens AI{% endblock %}</title>
+  <meta name="description" content="RepairLens AI repair decision assistant">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="{{ url_for('dashboard') }}">
+        <span class="brand-mark">✦</span>
+        <span><strong>RepairLens <em>AI</em></strong><small>Repair decision assistant</small></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <span class="nav-label">WORKSPACE</span>
+        <a class="nav-link {% if active_page == 'dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}"><span>⌂</span>Dashboard</a>
+        <a class="nav-link {% if active_page == 'diagnose' %}active{% endif %}" href="{{ url_for('diagnose') }}"><span>⌁</span>Diagnose Problem</a>
+        <a class="nav-link {% if active_page == 'cost-estimator' %}active{% endif %}" href="{{ url_for('cost_estimator') }}"><span>₹</span>Cost Estimator</a>
+        <a class="nav-link {% if active_page == 'history' %}active{% endif %}" href="{{ url_for('history') }}"><span>▣</span>Repair History</a>
+        <a class="nav-link {% if active_page == 'about' %}active{% endif %}" href="{{ url_for('about') }}"><span>ⓘ</span>About</a>
+      </nav>
+      <div class="sidebar-footer"><span class="status-dot"></span> Demo Workspace</div>
+    </aside>
+    <main class="main-content">
+      <button class="menu-button" id="menu-button" aria-label="Toggle navigation">☰</button>
+      <header class="topbar">
+        <div><span class="topbar-kicker">REPAIR INTELLIGENCE</span><strong>Understand the problem. Make a better decision.</strong></div>
+        <span class="ready-badge"><i></i> AI Assistant Ready</span>
+      </header>
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

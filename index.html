@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · RepairLens AI{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">SMARTER DEVICE CARE</p>
+    <h1>RepairLens <em>AI</em></h1>
+    <p class="hero-subtitle">AI-Powered Repair Decision Assistant</p>
+    <p class="hero-copy">Analyze device problems, estimate repair costs, and make smarter repair decisions with practical, safe guidance.</p>
+    <div class="hero-actions"><a class="button primary" href="{{ url_for('diagnose') }}">Start Diagnosis <span>→</span></a><a class="button ghost" href="{{ url_for('history') }}">View Repair History</a></div>
+  </div>
+  <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="device-icon">🔧</div><span class="spark spark-one">✦</span><span class="spark spark-two">·</span></div>
+</section>
+<div class="section-heading"><div><p class="eyebrow">OVERVIEW</p><h2>Your repair activity at a glance</h2></div><span class="section-note">Live workspace summary</span></div>
+<section class="metrics">
+  <article class="metric-card metric-blue"><span class="metric-icon">⌁</span><span><small>Total Diagnoses</small><strong>0</strong><b>Ready to analyze</b></span></article>
+  <article class="metric-card metric-green"><span class="metric-icon">✓</span><span><small>Repairs Recommended</small><strong>0</strong><b>Saved decisions</b></span></article>
+  <article class="metric-card metric-purple"><span class="metric-icon">↻</span><span><small>Replacement Recommended</small><strong>0</strong><b>Saved decisions</b></span></article>
+  <article class="metric-card metric-orange"><span class="metric-icon">₹</span><span><small>Average Estimated Cost</small><strong>₹0</strong><b>Across assessments</b></span></article>
+</section>
+<div class="section-heading compact"><div><p class="eyebrow">INSIGHTS</p><h2>Analytics overview</h2></div></div>
+<section class="analytics-grid">
+  <article class="panel chart-placeholder"><div class="card-heading"><span><strong>Repair vs Replacement</strong><small>Recommendation mix</small></span><span class="card-icon">↗</span></div><div class="empty-chart"><span>◌</span><p>Your chart will appear after your first diagnosis.</p></div></article>
+  <article class="panel chart-placeholder"><div class="card-heading"><span><strong>Diagnoses by Device Category</strong><small>Device distribution</small></span><span class="card-icon">▥</span></div><div class="empty-chart"><span>◫</span><p>Category insights are waiting for data.</p></div></article>
+  <article class="panel chart-placeholder"><div class="card-heading"><span><strong>Estimated Cost Overview</strong><small>Assessment ranges</small></span><span class="card-icon">₹</span></div><div class="empty-chart"><span>⌁</span><p>Cost trends will appear here.</p></div></article>
+</section>
+<div class="section-heading compact"><div><p class="eyebrow">ACTIVITY</p><h2>Recent Diagnoses</h2></div><a class="text-link" href="{{ url_for('history') }}">View all <span>→</span></a></div>
+<section class="panel empty-state"><span class="empty-icon">✦</span><h2>No diagnoses yet</h2><p>Your recent assessments will appear here. Start a diagnosis to see your repair insights.</p><a class="button secondary" href="{{ url_for('diagnose') }}">Create first diagnosis</a></section>
+{% endblock %}
